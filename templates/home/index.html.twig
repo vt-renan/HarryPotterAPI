@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% set title = "Maraudeur's Map" %}
+
+{% set description = "The REST API on the Harry Potter universe." %}
+{% set citation = "I solemnly swear that I am up to no good." %}
+{% set href_text = "See the documentation" %}
+{% set href = "/" %}
+
+{% block title %}MarauderAPI{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}
+
+{% block subheader %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="main_ctn">
+        <h2>Try it now</h2>
+        <div class="request_ctn">
+            <div class="prefix_url underline padding10">https://127.0.0.1:8000/api/</div>
+            <label>
+                <input class="padding10" type="text" name="action" value="character?firstName=Harry">
+            </label>
+            <button class="validate_btn padding10 pointer">Validate</button>
+        </div>
+    </div>
+    <div class="json_result"></div>
+
+{% endblock %}

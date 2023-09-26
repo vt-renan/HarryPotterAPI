@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% set title = "PotterDex" %}
+
+{% set description = "Because classification is not only for Pokémon" %}
+{% set citation = "" %}
+{% set href_text = "" %}
+{% set href = "" %}
+{% block title %}PotterDex{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('potterDex') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('potterDex') }}
+{% endblock %}
+
+{% block subheader %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="{{ character.house }}"
+             style="color: white; padding: 20px; border-radius: 8px 8px 0px 0px; text-align: center; margin: 15px auto 0px auto; width: 750px; ">
+            {{ character.house }}
+        </div>
+        <div class="flex_horizontal"
+             style="margin: auto; width: 750px; padding: 20px; background: #e3e3e3; border-radius: 0px 0px 8px 8px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+            <div>
+                <img src="{{ character.picture }}"
+                     style="width: 350px; height: 400px; border-radius: 8px; ">
+            </div>
+            <div class="flex_vertical"
+                 style="font-size: 28px; font-weight: 500; justify-content: space-between">
+
+
+                <div class="flex_horizontal" style="gap: 15px;">
+                    <i class="fas fa-address-card"></i>
+                    <p>{{ character.firstName }} {{ character.lastName }}</p>
+                </div>
+
+                <div class="flex_horizontal" style="gap: 15px;">
+                    <i class="fas fa-birthday-cake"></i>
+                    <p>{{ character.birthdate|date('M') }} {{ character.birthdate|date('d') }}
+                        , {{ character.birthdate|date('Y') }}</p>
+                </div>
+
+                <div class="flex_horizontal" style="gap: 15px;">
+                    <i class="fas fa-mars"></i>
+                    <p>{{ character.genre }}</p>
+                </div>
+
+                <div class="flex_horizontal" style="gap: 15px;">
+                    <i class="fas fa-tint"></i>
+                    <p>{{ character.blood }}</p>
+                </div>
+
+                <div class="flex_horizontal" style="gap: 15px;">
+                    <i class="fas fa-dove"></i>
+                    <p>{% if character.alive %}
+                            Alive
+                        {% else %}
+                            Dead
+                        {% endif %}
+                    </p>
+                </div>
+
+                <div class="flex_horizontal" style="gap: 15px; align-items: center; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 8px; padding: 5px;">
+                    <i class="fa-solid fa-wand-magic"></i>
+                    <p>Spells | </p>
+                    <ul class="flex_vertical" style="list-style: none; max-height: 150px; overflow: scroll">
+                        {% for spell in character.spells %}
+                            <li>
+                                {{ spell.name }}
+                                <p style="font-size: 12px; color: #3b4151">{{ spell.description }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

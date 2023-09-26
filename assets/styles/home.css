@@ -1,0 +1,44 @@
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.request_ctn {
+    display: flex;
+    margin-top: 30px;
+    font-size: 20px;
+    border: solid 1px #490505;
+    border-radius: 5px;
+}
+
+.main_ctn {
+    min-height: 50px;
+    width: 1200px;
+    margin: auto;
+}
+
+label , input{
+    width: 100%;
+    background: #FFF;
+    outline: none;
+    border: none;
+    font-size: 20px;
+}
+
+.prefix_url {
+    border-right: solid 1px #490505;
+    background: rgba(73, 5, 5, 0.65);
+    font-weight: bold;
+}
+
+.validate_btn {
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    background: #490505;
+    color: #FFF;
+}
+
+.total {
+    color: #f1f1f1;
+}

@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% set title = "Documentation" %}
+
+{% set description = "The REST API on the Harry Potter universe." %}
+{% set citation = "I solemnly swear that I am up to no good." %}
+{% set href_text = "" %}
+{% set href = "" %}
+{% block title %}MarauderAPI{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('documentation') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('documentation') }}
+{% endblock %}
+
+{% block subheader %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="ctn_endpoints">
+        <H2>Characters</H2>
+        <p class="border_bottom padding10-0">These routes will allow you to retrieve the main information of the Characters from the Harry Potter films and books</p>
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'All the characters',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/character',
+            'class': 'json_result_characters'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Character by ID',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/character/3 ',
+            'class': 'json_result_by_id'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Character by filters',
+            'description_class':'filters_characters filters',
+            'url':'https://127.0.0.1:8000/api/character?firstName=H',
+            'class': 'json_result_firstName_filter'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': '',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/character?firstName=H&blood=muggleborn',
+            'class': 'json_result_firstName_blood_filter'
+        }%}
+
+        <H2>Spells</H2>
+        <p class="border_bottom padding10-0">These routes will allow you to retrieve the main information of the Spells from the Harry Potter films and books. </p>
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'All the spells',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/spell',
+            'class': 'json_result_all_spells'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Spell by ID',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/spell/4',
+            'class': 'json_result_spell_ID'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Spell by filters',
+            'description_class':'filters_spells filters',
+            'url':'https://127.0.0.1:8000/api/spell?name=ac',
+            'class': 'json_result_spell_filter'
+        }%}
+
+
+        <H2>Pagination</H2>
+        <p class="border_bottom padding10-0">A limit of 2 items sent has been implemented for each API call to ensure better performance. </p>
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Character pagination',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/character?page=2',
+            'class': 'json_result_character_pagination'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Spell pagination',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/spell?page=2',
+            'class': 'json_result_spell_pagination'
+        }%}
+
+        {% include 'documentation/endpoints.html.twig' with{
+            'title': 'Pagination and filters',
+            'description_class':'',
+            'url':'https://127.0.0.1:8000/api/character?firstName=h&page=1',
+            'class': 'json_result_pagination_filters'
+        }%}
+
+    </section>
+{% endblock %}

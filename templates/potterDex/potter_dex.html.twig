@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% set title = "PotterDex" %}
+
+{% set description = "Because classification is not only for Pokémon" %}
+{% set citation = "" %}
+{% set href_text = "" %}
+{% set href = "" %}
+{% block title %}PotterDex{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('potterDex') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('potterDex') }}
+{% endblock %}
+
+{% block subheader %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="flex_vertical">
+        <p id="total_characters" data-total="{{ total }}"></p>
+        <section class="images_ctn">
+            {% for character in characters %}
+                <a href="{{ path('show_character' , {'id': character.id}) }}" target="_blank">
+                    <div class="character pointer" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                        <img class="character_image" src="{{ character.picture }}"
+                             alt="{{ character.firstName }} {{ character.lastName }} image">
+                        <div class="{{ character.house }} character_name">
+                            {{ character.firstName }} {{ character.lastName }}
+                        </div>
+                    </div>
+                </a>
+
+            {% endfor %}
+        </section>
+        <button id="show_more" class="pointer">Show more</button>
+    </div>
+{% endblock %}

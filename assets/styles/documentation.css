@@ -1,0 +1,38 @@
+.ctn_endpoints {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: auto;
+}
+
+.get {
+    background: #ba918d;;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.endpoint {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #490505;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+div ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}

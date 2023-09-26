@@ -1,0 +1,14 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+documentation:
+    path: /documentation
+    controller: App\Controller\DocumentationController::index
+potterDex:
+    path: /potterDex
+    controller: App\Controller\PotterDexController::index
+potterDexCharacter:
+    path: /potterDex/character
+    controller: App\Controller\PotterDexCharacterController::index
